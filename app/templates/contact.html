@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block main %}
+    <div class="container"></div>
+    <h2>Contact Form</h2>
+    <p>Fill in this form to contact the site owners.</p>
+    <form action="{{url_for('contact')}}" method="post">
+        {{ form.csrf_token }}  <!-- Protect from CSRF attacks by adding a hidden field -->
+        <h6> Name <span style="color: red;">(Required)</span></h6>
+        <p>Please enter your full name</p>
+        {{ form.name() }}<br><br>
+
+        <h6> Email <span style="color: red;">(Required)</span></h6>
+        <p>Please enter your email address</p>
+        {{ form.email() }}<br><br>
+
+        <h6> Subject <span style="color: red;">(Required)</span></h6>
+        <p>Please enter the subject of your message</p>
+        {{ form.subject() }}<br><br>
+
+        <h6> Message <span style="color: red;">(Required)</span></h6>
+        <p>Please enter the message you would like to send</p>
+        {{ form.message() }}<br><br>
+
+        <input type="submit" value="Send">
+    </form>
+    </div>
+{% endblock %}
+
